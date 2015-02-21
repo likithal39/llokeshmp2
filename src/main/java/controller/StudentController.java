@@ -24,7 +24,7 @@ import javax.validation.Validator;
 
 /**
  *
- * @author Srinivas
+ * @author Likitha
  */
 @WebServlet(name = "StudentController",
         urlPatterns = {

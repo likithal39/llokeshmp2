@@ -1,0 +1,24 @@
+-classpath
+'C:/Users/Likitha/.m2/repository/javax/javaee-web-api/7.0/javaee-web-api-7.0.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'C:/Users/Likitha/Documents/NetBeansProjects/llokeshmp2/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2015. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Likitha/Documents/NetBeansProjects/llokeshmp2/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'llokeshmp2 1.0-SNAPSHOT API'
+-linkoffline
+'http://docs.oracle.com/javase/7/docs/api' 'C:/Users/Likitha/Documents/NetBeansProjects/llokeshmp2/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'llokeshmp2 1.0-SNAPSHOT API'
