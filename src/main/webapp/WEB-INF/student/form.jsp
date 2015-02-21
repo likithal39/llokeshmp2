@@ -32,51 +32,51 @@
         <h1>${requestScope.stud.studentID}</h1>
 
         <form role="form" method="post" action="${pageContext.request.contextPath}/student/edit">
-           
+
         </c:when>
         <c:otherwise>
             <form role="form" method="post" action="${pageContext.request.contextPath}/student/new">
 
             </c:otherwise>
-               
-        </c:choose>
-                <body>
-                    
-        <body bgcolor="#E6E6FA">
-         <div class="row">
-            <div class="large-4 columns">
-                <label>Student ID
-                    <input type="text" placeholder="student ID" id="studentId" name="studentID" value="${stud.studentID}" />
-                </label>
-            </div>
-            <div class="large-4 columns">
-                <label>First Name
-                    <input type="text" placeholder="First Name" id="firstName" name="firstName" value="${stud.firstName}"/>
-                </label>
-            </div>
-            <div class="large-4 columns">
-                <label>Last Name
-                    <input type="text" placeholder="Last Name" id="lastName" name="lastName" value="${stud.lastName}"/>
-                </label>
-            </div>
-        </div>
-        
-               
-        <div class="row">
-            <div class="large-12 columns">
-                <label>Address
-                    <textarea id="address" name="address" placeholder="address" value="${stud.address}"></textarea>
-                </label>
-            </div>
-        </div>
 
-        <c:if test="${requestScope.readonly ne 'readonly'}">
+        </c:choose>
+        <body>
+
+        <body bgcolor="#E6E6FA">
             <div class="row">
-                <div class="large-12 columns">
-                    <button class="button">Save</button>
+                <div class="large-4 columns">
+                    <label>Student ID
+                        <input type="text" placeholder="student ID" id="studentId" name="studentID" value="${stud.studentID}" />
+                    </label>
+                </div>
+                <div class="large-4 columns">
+                    <label>First Name
+                        <input type="text" placeholder="First Name" id="firstName" name="firstName" value="${stud.firstName}"/>
+                    </label>
+                </div>
+                <div class="large-4 columns">
+                    <label>Last Name
+                        <input type="text" placeholder="Last Name" id="lastName" name="lastName" value="${stud.lastName}"/>
+                    </label>
                 </div>
             </div>
-        </c:if>
+
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Address
+                        <textarea id="address" name="address" placeholder="address" value="${stud.address}"></textarea>
+                    </label>
+                </div>
+            </div>
+
+            <c:if test="${requestScope.readonly ne 'readonly'}">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <button class="button">Save</button>
+                    </div>
+                </div>
+            </c:if>
     </form>
-        </body>
-    <%@include file="/WEB-INF/footer.jspf" %>
+</body>
+<%@include file="/WEB-INF/footer.jspf" %>

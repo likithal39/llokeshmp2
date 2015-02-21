@@ -14,29 +14,30 @@ import javax.validation.constraints.Size;
  */
 public class Student {
 //@NotNull
+
     private String studentID;
-@Size(max = 40)
-@NotNull
+    @Size(max = 40)
+    @NotNull
     private String firstName;
-@Size(max = 40)
-@NotNull
+    @Size(max = 40)
+    @NotNull
     private String lastName;
 
-@Size(max = 70)
-private String address;
+    @Size(max = 70)
+    private String address;
+
     public Student() {
     }
 
-    public Student(String studentID, String firstName, String lastName,  String address) {
+    public Student(String studentID, String firstName, String lastName, String address) {
         this.studentID = studentID;
         this.firstName = firstName;
         this.lastName = lastName;
         //
-      
+
         this.address = address;
     }
 
-    
     /**
      * Get the value of Courses
      *
@@ -96,10 +97,6 @@ private String address;
         this.studentID = studentID;
     }
 
-   
-
-
-
     public String getAddress() {
         return address;
     }
@@ -112,7 +109,5 @@ private String address;
     public String toString() {
         return "Student{" + "studentID=" + studentID + ", firstName=" + firstName + ", lastName=" + lastName + ",address=" + address + '}';
     }
-    
 
-    
 }

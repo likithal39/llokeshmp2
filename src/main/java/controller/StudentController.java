@@ -22,7 +22,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
-
 /**
  *
  * @author Srinivas
@@ -35,11 +34,12 @@ import javax.validation.Validator;
             "/student/delete",
             "/student/edit"})
 public class StudentController extends HttpServlet {
-     private static final Logger LOG = Logger.getLogger(StudentController.class.getName());
+
+    private static final Logger LOG = Logger.getLogger(StudentController.class.getName());
 
     @EJB
     private StudentService ssv;
-    Student s= new Student();
+    Student s = new Student();
 
     @Resource
     Validator validator;
@@ -74,7 +74,6 @@ public class StudentController extends HttpServlet {
 
         HashMap<String, String> messages = new HashMap<>();
         request.setAttribute("messages", messages);
-       
 
         switch (request.getServletPath()) {
             case "/student":
@@ -94,48 +93,48 @@ public class StudentController extends HttpServlet {
                 request.setAttribute("stud", ssv.findAll());
                 request.getRequestDispatcher("/WEB-INF/student/show.jsp").forward(request, response);
                 break;
-           
+
             case "/student/delete":
-                request.setAttribute("stud",ssv.delete(request.getParameter("studentID")));
+                request.setAttribute("stud", ssv.delete(request.getParameter("studentID")));
                 LOG.info("stud id you indise the");
                 request.getRequestDispatcher("/WEB-INF/student/delete.jsp").forward(request, response);
                 break;
             case "/student/new":
-                 LOG.info("new  student");
+                LOG.info("new  student");
                 request.setAttribute("action", "new");
                 request.getRequestDispatcher("/WEB-INF/student/form.jsp").forward(request, response);
                 break;
             case "/student/edit":
                 request.setAttribute("stud", ssv.find(request.getParameter("studentID")));
-         
+
                 request.getRequestDispatcher("/WEB-INF/student/form.jsp").forward(request, response);
                 LOG.info("Process edit here!");
-               /*
-               s.setStudentID(purge(request.getParameter("studentID"))); 
-               s.setAddress(purge(request.getParameter("address")));
-              //  s.setEmail(purge(request.getParameter("email")));
-                s.setfirstName(purge(request.getParameter("firstName")));
-                s.setlastName(purge(request.getParameter("lastName")));;
+                /*
+                 s.setStudentID(purge(request.getParameter("studentID"))); 
+                 s.setAddress(purge(request.getParameter("address")));
+                 //  s.setEmail(purge(request.getParameter("email")));
+                 s.setfirstName(purge(request.getParameter("firstName")));
+                 s.setlastName(purge(request.getParameter("lastName")));;
 
                 
-                Set<ConstraintViolation<Student>> violations   = validator.validate(s);
-                LOG.log(Level.INFO, "Violations: {0}", violations.size());
+                 Set<ConstraintViolation<Student>> violations   = validator.validate(s);
+                 LOG.log(Level.INFO, "Violations: {0}", violations.size());
                 
                 
-                if (violations.isEmpty()) { //What are you trying to do here?
-                    LOG.info("oye");
-                    if (ssv.update(s)) {
-                        request.getRequestDispatcher("/WEB-INF/student/show.jsp").forward(request, response);
-                    }
-                } else {
-                    request.setAttribute("violations", violations);
-                    request.setAttribute("stud", s);
-                    request.setAttribute("action", "new");
-                    LOG.info("edit");
-                        request.getRequestDispatcher("/WEB-INF/student/form.jsp").forward(request, response);
-              LOG.info("hello");
-                }
-                */
+                 if (violations.isEmpty()) { //What are you trying to do here?
+                 LOG.info("oye");
+                 if (ssv.update(s)) {
+                 request.getRequestDispatcher("/WEB-INF/student/show.jsp").forward(request, response);
+                 }
+                 } else {
+                 request.setAttribute("violations", violations);
+                 request.setAttribute("stud", s);
+                 request.setAttribute("action", "new");
+                 LOG.info("edit");
+                 request.getRequestDispatcher("/WEB-INF/student/form.jsp").forward(request, response);
+                 LOG.info("hello");
+                 }
+                 */
                 break;
             default:
                 break;
@@ -159,26 +158,24 @@ public class StudentController extends HttpServlet {
         request.setAttribute("messages", messages);
 
         switch (request.getServletPath()) {
-            
+
             case "/student/new":
-                
+
                 s.setStudentID(purge(request.getParameter("studentID")));
                 s.setAddress(purge(request.getParameter("address")));
-               // s.setEmail(purge(request.getParameter("email")));
+                // s.setEmail(purge(request.getParameter("email")));
                 s.setfirstName(purge(request.getParameter("firstName")));
                 s.setlastName(purge(request.getParameter("lastName")));
-                
-                
-                 LOG.info(s.getfirstName());
+
+                LOG.info(s.getfirstName());
                 Set<ConstraintViolation<Student>> violations
                         = validator.validate(s);
                 LOG.log(Level.INFO, "Violations: {0}", violations.size());
-                 
-                
-                if (violations.isEmpty()) {  
-                    
+
+                if (violations.isEmpty()) {
+
                     if (ssv.create(s)) {
-                         request.setAttribute("stud", ssv.findAll());
+                        request.setAttribute("stud", ssv.findAll());
                         request.getRequestDispatcher("/WEB-INF/student/show.jsp").forward(request, response);
                     }
                 } else {
@@ -189,27 +186,24 @@ public class StudentController extends HttpServlet {
                 }
 
                 break;
-                case "/student/delete":
+            case "/student/delete":
                 LOG.info("delete");
-                request.setAttribute("stud",ssv.delete(request.getParameter("studentID")));
+                request.setAttribute("stud", ssv.delete(request.getParameter("studentID")));
                 LOG.info("studd");
                 request.getRequestDispatcher("/WEB-INF/student/show.jsp").forward(request, response);
                 break;
             case "/student/edit":
                 LOG.info("Process student edit here!");
-               
-                
+
                 s.setStudentID(purge(request.getParameter("studentID")));
-               s.setAddress(purge(request.getParameter("address")));
-               // s.setEmail(purge(request.getParameter("email")));
+                s.setAddress(purge(request.getParameter("address")));
+                // s.setEmail(purge(request.getParameter("email")));
                 s.setfirstName(purge(request.getParameter("firstName")));
                 s.setlastName(purge(request.getParameter("lastName")));
 
-                
-                violations   = validator.validate(s);
+                violations = validator.validate(s);
                 LOG.log(Level.INFO, "Violations: {0}", violations.size());
-                
-                
+
                 if (violations.isEmpty()) {
                     LOG.info("update");
                     boolean testBool = ssv.update(s);

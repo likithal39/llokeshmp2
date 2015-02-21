@@ -40,24 +40,24 @@
             </section>
         </nav>        
 
-        <c:if test="${not empty requestScope.messages}">
-            <h2>Messages passed back from the controller layer in request scope:</h2>
-            <ul>
-                <c:forEach items="${requestScope.messages}" var="message">
-                    <li>
-                        <strong><c:out value="${message.key}"/>: ${message.value}</strong>
-                    </li>
-                </c:forEach>
-            </ul>
-        </c:if>
+    <c:if test="${not empty requestScope.messages}">
+        <h2>Messages passed back from the controller layer in request scope:</h2>
+        <ul>
+            <c:forEach items="${requestScope.messages}" var="message">
+                <li>
+                    <strong><c:out value="${message.key}"/>: ${message.value}</strong>
+                </li>
+            </c:forEach>
+        </ul>
+    </c:if>
 
-        <c:if test="${not empty requestScope.violations}">
-            <h2>Violations passed back from the controller layer in request scope:</h2>
-            <ul>
-                <c:forEach items="${requestScope.violations}" var="violation">
-                    <li>
-                        <strong><c:out value="${violation.propertyPath}"/>: ${violation.message}</strong>
-                    </li>
-                </c:forEach>
-            </ul>
-        </c:if>
+    <c:if test="${not empty requestScope.violations}">
+        <h2>Violations passed back from the controller layer in request scope:</h2>
+        <ul>
+            <c:forEach items="${requestScope.violations}" var="violation">
+                <li>
+                    <strong><c:out value="${violation.propertyPath}"/>: ${violation.message}</strong>
+                </li>
+            </c:forEach>
+        </ul>
+    </c:if>

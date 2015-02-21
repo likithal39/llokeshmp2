@@ -14,7 +14,7 @@
     <h1>Welcome to student portal</h1>
     <h2>select the below options</h2>
     <body>
-        <body bgcolor="#90EE90">
+    <body bgcolor="#90EE90">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
@@ -28,45 +28,45 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    
-        <c:if test="${not empty requestScope.messages}">
-            <div class="alert alert-warning alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <ul>
-                    <c:forEach items="${requestScope.messages}" var="msg">
-                        <li>
-                            <strong><c:out value="${msg.key}: ${msg.value}"/></strong>
-                        </li>
-                    </c:forEach>
-                </ul>
-            </div>
-        </c:if>
 
-        <c:if test="${not empty requestScope.violations}">
-            <div class="alert alert-warning alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <ul>
-                    <c:forEach items="${requestScope.violations}" var="violation">
-                        <li>
-                            <strong><c:out value="${violation.message}"/></strong>
-                        </li>
-                    </c:forEach>
-                </ul>
-            </div>
-        </c:if>
+    <c:if test="${not empty requestScope.messages}">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <ul>
+                <c:forEach items="${requestScope.messages}" var="msg">
+                    <li>
+                        <strong><c:out value="${msg.key}: ${msg.value}"/></strong>
+                    </li>
+                </c:forEach>
+            </ul>
+        </div>
+    </c:if>
 
-        <ul>
-            <li><a href="${pageContext.request.contextPath}/student/">Display all Students</a></li>
-            <li><a href="${pageContext.request.contextPath}/student/new">Add New Student</a></li>
-         
-        </ul>
+    <c:if test="${not empty requestScope.violations}">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <ul>
+                <c:forEach items="${requestScope.violations}" var="violation">
+                    <li>
+                        <strong><c:out value="${violation.message}"/></strong>
+                    </li>
+                </c:forEach>
+            </ul>
+        </div>
+    </c:if>
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <ul>
+        <li><a href="${pageContext.request.contextPath}/student/">Display all Students</a></li>
+        <li><a href="${pageContext.request.contextPath}/student/new">Add New Student</a></li>
 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    </ul>
 
-    </body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</body>
 </html>
 <%@include file="/WEB-INF/footer.jspf" %>

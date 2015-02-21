@@ -26,15 +26,17 @@ import static jdk.nashorn.internal.codegen.Compiler.LOG;
  * @author Likitha
  */
 @Stateless
-public class StudentService{
-@Resource(lookup = "jdbc/llokeshMp2DS")
+public class StudentService {
+
+    @Resource(lookup = "jdbc/llokeshMp2DS")
     private DataSource dataSource;
+
     public StudentService() {
     }
 //Student s;
-   
+
     public Collection<Student> findAll() {
-    LOG.info("find all");
+        LOG.info("find all");
         List<Student> students = new ArrayList<>();
 
         try (Connection c = dataSource.getConnection()) {
@@ -46,7 +48,7 @@ public class StudentService{
                 students.add(new Student(rs.getString("studentID"),
                         rs.getString("firstName"),
                         rs.getString("lastName"),
-                       // rs.getString("email"),
+                        // rs.getString("email"),
                         rs.getString("address")
                 ));
             }
@@ -60,13 +62,11 @@ public class StudentService{
         } else {
             return students;
         }
- 
+
     }
 
-    
-    
-      public Student find(String studentID) {
-LOG.info("find");
+    public Student find(String studentID) {
+        LOG.info("find");
         Student s = null;
 
         try (Connection conn = dataSource.getConnection()) {
@@ -86,14 +86,14 @@ LOG.info("find");
         //LOG.info(country.toString());
         return s;
     }
-   public boolean create(Student c) {
-        
-         
-            //Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null,);
-        try  {
+
+    public boolean create(Student c) {
+
+        //Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null,);
+        try {
             Connection conn = dataSource.getConnection();
             PreparedStatement ps = conn.prepareStatement("insert into student_table (studentID,firstName,lastName,address) values (?,?,?,?)");
-           ps.setString(1, c.getStudentID());           
+            ps.setString(1, c.getStudentID());
             ps.setString(2, c.getfirstName());
             ps.setString(3, c.getlastName());
             ps.setString(4, c.getAddress());
@@ -108,22 +108,20 @@ LOG.info("find");
         return false;
     }
 
-   
     public boolean update(Student c) {
-                LOG.info(c.toString());
+        LOG.info(c.toString());
 
         try {
             Connection conn = dataSource.getConnection();
-              
 
             PreparedStatement ps = conn.prepareStatement("update student_table set studentID = ?, address = ?, firstName = ?, lastName= ? where studentID= ?");
-             ps.setString(1, c.getStudentID()); 
-            ps.setString(2, c.getAddress());         
+            ps.setString(1, c.getStudentID());
+            ps.setString(2, c.getAddress());
             ps.setString(3, c.getfirstName());
             ps.setString(4, c.getlastName());
             ps.setString(5, c.getStudentID());
-            
-            int temp=ps.executeUpdate();
+
+            int temp = ps.executeUpdate();
             LOG.info(temp);
             if (ps.executeUpdate() == 1) {
                 return true;
@@ -139,13 +137,13 @@ LOG.info("find");
     /**
      *
      * @param id
-     
-     * @return 
+     *
+     * @return
      */
     public boolean delete(String studentID) {
 
         try (Connection conn = dataSource.getConnection()) {
-LOG.info("delete");
+            LOG.info("delete");
             PreparedStatement ps = conn.prepareStatement("delete from student_table where studentID=?");
             ps.setString(1, studentID);
             if (ps.executeUpdate() == 1) {
@@ -156,25 +154,22 @@ LOG.info("delete");
             LOG.log(Level.SEVERE, null, ex);
         }
 
-       return false;
+        return false;
     }
-   
 
-    
     public boolean save(Student c) {
-   try (Connection conn = dataSource.getConnection()) {
+        try (Connection conn = dataSource.getConnection()) {
             PreparedStatement ps = conn.prepareStatement("update student_table set field = ?, field2 = ? where studentID = ?");
             ps.setString(1, c.getStudentID());
             // and so forth
             if (ps.executeUpdate() == 1) {
                 return true;
             }
-            } catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return false;
     }
 
-   
 }

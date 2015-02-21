@@ -14,7 +14,7 @@
         </ul>
     </div>
 </c:if>
-    
+
 
 <table class="table">
     <thead>
@@ -23,29 +23,29 @@
             <th>First Name</th>
             <th>Last Name </th>
             <th>Address   </th>
-            
+
         </tr>
     </thead>
     <tbody>
-        <body bgcolor="#E6E6FA">
+    <body bgcolor="#E6E6FA">
         <c:forEach items="${requestScope.stud}" var="row">
-            <tr>
-                <c:url value="${request.contextPath}/student/edit" var="editStudentURL">
-                    <c:param name="studentID" value="${row.studentID}"/>
-                </c:url>
-                        
-                <c:url value="${request.contextPath}/student/delete" var="delStudentURL">
-                    <c:param name="studentID" value="${row.studentID}"/>
-                </c:url>
-                        
-                <td><a href="${editStudentURL}">${row.studentID}</a></td>    
-                <td><c:out value="${row.firstName}"/></td>
-                <td><c:out value="${row.lastName}"/></td>
-                <td><c:out value="${row.address}"/></td>
-                
-                <td><a href="${delStudentURL}">Delete</a></td>
-            </tr>
-        </c:forEach>
-    </tbody>
+        <tr>
+            <c:url value="${request.contextPath}/student/edit" var="editStudentURL">
+                <c:param name="studentID" value="${row.studentID}"/>
+            </c:url>
+
+            <c:url value="${request.contextPath}/student/delete" var="delStudentURL">
+                <c:param name="studentID" value="${row.studentID}"/>
+            </c:url>
+
+            <td><a href="${editStudentURL}">${row.studentID}</a></td>    
+            <td><c:out value="${row.firstName}"/></td>
+            <td><c:out value="${row.lastName}"/></td>
+            <td><c:out value="${row.address}"/></td>
+
+            <td><a href="${delStudentURL}">Delete</a></td>
+        </tr>
+    </c:forEach>
+</tbody>
 </table>
 <%@include file="/WEB-INF/footer.jspf" %>
