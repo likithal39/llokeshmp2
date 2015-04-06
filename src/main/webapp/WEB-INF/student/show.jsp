@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@include file="/WEB-INF/header.jspf" %>
+
+<%@include file="/WEB-INF/templates/header.jspf" %>
 
 <c:if test="${not empty messages}">
     <div class="alert alert-warning alert-dismissible" role="alert">
@@ -48,4 +49,5 @@
     </c:forEach>
 </tbody>
 </table>
-<%@include file="/WEB-INF/footer.jspf" %>
+<h5><a href="<c:url value="/index.jsp"/>">Home page</a></h5>
+<%@include file="/WEB-INF/templates/footer.jspf" %>

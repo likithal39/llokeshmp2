@@ -13,8 +13,8 @@ import javax.validation.constraints.Size;
  * @author Likitha
  */
 public class Student {
-//@NotNull
 
+    @NotNull
     private String studentID;
     @Size(max = 40)
     @NotNull

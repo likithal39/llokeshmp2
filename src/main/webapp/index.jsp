@@ -56,8 +56,11 @@
     </c:if>
 
     <ul>
+        <h4>
         <li><a href="${pageContext.request.contextPath}/student/">Display all Students</a></li>
         <li><a href="${pageContext.request.contextPath}/student/new">Add New Student</a></li>
+        <li><a href="${pageContext.request.contextPath}/javadocs">To view the Javadocs</a></li>
+        </h4>
 
     </ul>
 
@@ -66,7 +69,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
+    
 </body>
 </html>
 <%@include file="/WEB-INF/footer.jspf" %>
